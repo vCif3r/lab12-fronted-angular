@@ -1,0 +1,44 @@
+
+<mat-sidenav-container autosize>
+    
+    <mat-sidenav #sidenav fixedInViewport [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false" class="shadow-2xl">
+        <div class="p-4">
+            <img src="https://www.tecsup.edu.pe/themes/tecsup/logo.svg" width="150" alt="">
+        </div><hr>
+        <mat-nav-list>
+            @for (m of menu; track $index) {
+                <a mat-list-item>
+                    <mat-icon matListItemIcon>{{m.icon}}</mat-icon>
+                    <span matListItemTitle>{{m.label}}</span>
+                </a>
+            }
+            <a mat-list-item [routerLink]="['/intranet/student/profile', idUser]">
+                <mat-icon matListItemIcon>person</mat-icon>
+                <span matListItemTitle>Perfil</span>
+            </a>
+            <a mat-list-item (click)="logout()">
+                <mat-icon matListItemIcon>logout</mat-icon>
+                <span matListItemTitle>Cerrar Sesión</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="h-screen">
+        <mat-toolbar>
+            <button mat-icon-button (click)="sidenav.toggle()" *ngIf="isHandset$ | async">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <div class="ms-auto">
+                <button mat-icon-button>
+                    <mat-icon>notifications</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon>settings</mat-icon>
+                </button>
+            </div>
+        </mat-toolbar>
+        <div class="p-4">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

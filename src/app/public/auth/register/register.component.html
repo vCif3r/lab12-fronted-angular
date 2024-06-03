@@ -1,0 +1,36 @@
+<!-- component -->
+<div class="flex h-full w-full py-10 items-center justify-center bg-gray-900 bg-cover bg-no-repeat" style="background-image:url('https://riseapps.co/wp-content/uploads/2021/02/How-to-Build-a-Learning-Management-System-From-Scratch.png')">
+    <div class="rounded-xl bg-gray-800 bg-opacity-50 px-10 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
+      <div>
+        <div class="mb-8 flex flex-col items-center">
+          <img src="" width="150" alt="" srcset="" />
+          <h1 class="mb-2 text-3xl text-white">Registro</h1>
+          <span class="text-gray-300">Completa todos los campos.</span>
+        </div>
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+          <div class="mb-4 text-lg">
+            <input class="rounded-3xl border-none bg-opacity-50 px-6 py-2 shadow-lg outline-none backdrop-blur-md" type="text" name="name" formControlName="name" placeholder="Nombre"/>
+          </div>
+
+          <div class="mb-4 text-lg">
+            <input class="rounded-3xl border-none bg-opacity-50 px-6 py-2 shadow-lg outline-none backdrop-blur-md" type="text" name="name" formControlName="lastName" placeholder="Apellido"/>
+          </div>
+
+          <div class="mb-4 text-lg">
+            <input class="rounded-3xl border-none bg-opacity-50 px-6 py-2 shadow-lg outline-none backdrop-blur-md" type="text" name="name" formControlName="email" placeholder="Correo"/>
+          </div>
+  
+          <div class="mb-4 text-lg">
+            <input class="rounded-3xl border-none  bg-opacity-50 px-6 py-2 shadow-lg outline-none backdrop-blur-md" type="Password" name="name" formControlName="password" placeholder="Contraseña"/>
+          </div>
+          <div>
+            <span class="text-white">¿Tienes una cuenta? </span>
+            <a routerLink="/login" class="underline text-gray-300 font-medium">ingresa aquí</a>
+          </div>
+          <div class="mt-8 flex justify-center text-lg text-black">
+            <button type="submit" class="rounded-3xl bg-cyan-700 bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-cyan-800">Ingresar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
